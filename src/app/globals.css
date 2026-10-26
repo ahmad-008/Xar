@@ -10,11 +10,14 @@
   --color-surface: #f9fafb;      /* light background for sections */
 
   /* ---------- Font ---------- */
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
 
 
+
+  
 }
 
 body{
-  @apply bg-white text-white antialiased;
+ @apply bg-white text-brand antialiased;   /* dark text */
+
 }

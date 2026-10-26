@@ -38,7 +38,7 @@ const sizeStyles: Record<Size, string> = {
 export default function Button({
     variant = "primary", //default if not passed
     size = "md",
-    className = " ", //extra classes from parent
+    className ="", //extra classes from parent
     ...props        // EVERYTHING else (onClick, type, children, disabled...)
 }: ButtonProps) {
     return (

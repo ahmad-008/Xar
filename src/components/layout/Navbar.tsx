@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Heart, Menu, ShoppingCart, User, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { link } from "fs";
 
 
 
@@ -82,6 +83,40 @@ export default function Navbar() {
 
 
             </Container>
+
+        {/* ---------- Mobile menu ---------- */}
+        {isOpen && (
+            <nav className="border-t border-gray-200 bg-white md:hidden" >
+                <Container className="flex flex-col gap-4 py-4" >
+                    {NAV_LINKS.map((link)=>(
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={linkClass(link.href)}
+                            onClick={()=> setIsOpen(false)}
+                        >
+                        {link.label}
+                        </Link>
+                    ))}
+
+                    {/*Login link: account icon is hidden on phone, so it placed here*/}
+                    <Link
+                        href="/login"
+                        className={linkClass("/login")}
+                        onClick={()=> setIsOpen(false)}
+                    >
+                        Login / Signup
+                    </Link>
+                </Container>
+
+            </nav>
+        )
+
+        }    
+
+
+
+
 
         </header>
 

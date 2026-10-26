@@ -66,6 +66,16 @@ export default function Navbar() {
                         <User size={20}/>
                     </Link>
 
+                    {/* Hamburger menu only on mobile, toggles the menu */}
+                    <button
+                        onClick={()=> setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
+                        aria-expanded={isOpen}
+                        className="md:hidden"
+                    >
+                        {isOpen ? <X size={22}/> : <Menu size={22}/> }
+                    </button>
+
 
                 </div>
 

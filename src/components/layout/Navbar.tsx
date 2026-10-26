@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Heart, Menu, ShoppingCart, User, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
-import { link } from "fs";
+
 
 
 

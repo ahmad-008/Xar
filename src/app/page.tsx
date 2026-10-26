@@ -1,6 +1,8 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 
 export default function HomePage() {
   return (
@@ -8,6 +10,7 @@ export default function HomePage() {
     <>
 
       <Navbar />
+
       <Container className="py-20" >
         <div className="flex flex-wrap gap-3" >
           <Button>Primary</Button>
@@ -20,7 +23,7 @@ export default function HomePage() {
 
 
       </Container>
-
+      <Footer />
     </>
 
 

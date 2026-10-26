@@ -35,17 +35,40 @@ export default function Navbar() {
                 </Link>
 
                 {/* ---------- Desktop links ---------- */}
-        {/* hidden on mobile shown as a row from md (768px) up */}
+                {/* hidden on mobile shown as a row from md (768px) up */}
                 <nav className="hidden items-center gap-8 md:flex" >
-                    {NAV_LINKS.map((link)=>(
+                    {NAV_LINKS.map((link) => (
                         <Link key={link.href} href={link.href} className={linkClass(link.href)} >
                             {link.label}
                         </Link>
                     ))
-                    
-
                     }
                 </nav>
+
+                {/* ---------- Action icons ---------- */}
+                <div  className="flex items-center gap-4" >
+                    
+                    {/* Wishlist */}
+                    <Link href="/wishlist" aria-label="Wishlist" className="hover:text-accent" >
+                        <Heart size={20} />
+                    </Link>
+
+                    {/* Cart with item-count badge */}
+                    <Link href="/cart" aria-label="Cart" className="relative hover:text-accent">
+                        <ShoppingCart size={20}/>
+                        <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white" >
+                            0
+                        </span>
+                    </Link>
+                
+                    {/* Account: hidden on tiny screens (it'll be in the mobile menu) */}
+                    <Link href="/login" aria-label="Account" className="hidden hover:text-accent sm:block" >
+                        <User size={20}/>
+                    </Link>
+
+
+                </div>
+
 
 
             </Container>

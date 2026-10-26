@@ -94,7 +94,7 @@ export default function Footer() {
 
                     <form className="flex gap-2" >
                         <label htmlFor="newsletter-email" className="sr-only" >
-                            Email adress
+                            Email address
                         </label>
                         <input
                             id="newsletter-email"

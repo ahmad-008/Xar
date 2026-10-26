@@ -9,7 +9,7 @@ export default function HomePage() {
 
     <>
 
-      <Navbar />
+      
 
       <Container className="py-20" >
         <div className="flex flex-wrap gap-3" >
@@ -23,7 +23,7 @@ export default function HomePage() {
 
 
       </Container>
-      <Footer />
+      
     </>
 
 

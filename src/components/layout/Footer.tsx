@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { cacheLife } from "next/cache";
 
 //Footer Links
 const SUPPORT_LINKS = [
@@ -11,6 +12,18 @@ const SUPPORT_LINKS = [
     { label: "Return", href: "/returns" },
     { label: "FAQ", href: "/faq" },
 ];
+
+//Copyright Year
+// new Date() changes every call, so Cache Components won't prerender
+// it directly. "use cache" stores the result; cacheLife("days")
+// refreshes it daily, so the year rolls over on its own.
+
+async function CopyrightYear(){
+    "use cache";
+    cacheLife("days");
+    return <>{new Date().getFullYear()}</>;
+}
+
 
 export default function Footer() {
     return (
@@ -72,6 +85,38 @@ export default function Footer() {
                         }
 
                     </ul>
+                </div>
+
+                {/* 4th column*/}
+                <div>
+                    <h4 className="mb-3 font-semibold" >NewsLetter</h4>
+                    <p className="mb-3 text-sm text-muted">Get deals straight to your inbox.</p>
+
+                    <form className="flex gap-2" >
+                        <label htmlFor="newsletter-email" className="sr-only" >
+                            Email adress
+                        </label>
+                        <input
+                            id="newsletter-email"
+                            type="email"
+                            required
+                            placeholder="Your email"
+                            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-brand"
+                        />
+
+                        <button
+                            type="submit"
+                            className="rounded-lg bg-brand px-4 text-sm text-white hover:bg-brand-light"
+                        
+                        >
+                            Join
+                        </button>
+
+
+
+                    </form>
+
+
 
 
 
@@ -83,6 +128,11 @@ export default function Footer() {
 
 
             </Container>
+
+            {/*Bottom Bar*/}
+            <div className="border-t border-gray-200 py-4 text-center text-sm text-muted" >
+                © <CopyrightYear /> {SITE_NAME}. All rights reserved.
+            </div>
 
 
         </footer>

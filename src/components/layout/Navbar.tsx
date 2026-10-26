@@ -47,8 +47,8 @@ export default function Navbar() {
                 </nav>
 
                 {/* ---------- Action icons ---------- */}
-                <div  className="flex items-center gap-4" >
-                    
+                <div className="flex items-center gap-4" >
+
                     {/* Wishlist */}
                     <Link href="/wishlist" aria-label="Wishlist" className="hover:text-accent" >
                         <Heart size={20} />
@@ -56,25 +56,25 @@ export default function Navbar() {
 
                     {/* Cart with item-count badge */}
                     <Link href="/cart" aria-label="Cart" className="relative hover:text-accent">
-                        <ShoppingCart size={20}/>
+                        <ShoppingCart size={20} />
                         <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white" >
                             0
                         </span>
                     </Link>
-                
+
                     {/* Account: hidden on tiny screens (it'll be in the mobile menu) */}
                     <Link href="/login" aria-label="Account" className="hidden hover:text-accent sm:block" >
-                        <User size={20}/>
+                        <User size={20} />
                     </Link>
 
                     {/* Hamburger menu only on mobile, toggles the menu */}
                     <button
-                        onClick={()=> setIsOpen(!isOpen)}
+                        onClick={() => setIsOpen(!isOpen)}
                         aria-label="Toggle menu"
                         aria-expanded={isOpen}
                         className="md:hidden"
                     >
-                        {isOpen ? <X size={22}/> : <Menu size={22}/> }
+                        {isOpen ? <X size={22} /> : <Menu size={22} />}
                     </button>
 
 
@@ -84,35 +84,35 @@ export default function Navbar() {
 
             </Container>
 
-        {/* ---------- Mobile menu ---------- */}
-        {isOpen && (
-            <nav className="border-t border-gray-200 bg-white md:hidden" >
-                <Container className="flex flex-col gap-4 py-4" >
-                    {NAV_LINKS.map((link)=>(
+            {/* ---------- Mobile menu ---------- */}
+            {isOpen && (
+                <nav className="border-t border-gray-200 bg-white md:hidden" >
+                    <Container className="flex flex-col gap-4 py-4" >
+                        {NAV_LINKS.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={linkClass(link.href)}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+
+                        {/*Login link: account icon is hidden on phone, so it placed here*/}
                         <Link
-                            key={link.href}
-                            href={link.href}
-                            className={linkClass(link.href)}
-                            onClick={()=> setIsOpen(false)}
+                            href="/login"
+                            className={linkClass("/login")}
+                            onClick={() => setIsOpen(false)}
                         >
-                        {link.label}
+                            Login / Signup
                         </Link>
-                    ))}
+                    </Container>
 
-                    {/*Login link: account icon is hidden on phone, so it placed here*/}
-                    <Link
-                        href="/login"
-                        className={linkClass("/login")}
-                        onClick={()=> setIsOpen(false)}
-                    >
-                        Login / Signup
-                    </Link>
-                </Container>
+                </nav>
+            )
 
-            </nav>
-        )
-
-        }    
+            }
 
 
 

@@ -36,7 +36,7 @@ export default function Footer() {
                 {/* 2nd column*/}
                 <div>
                     <h4 className="mb-3 font-semibold" >Shop</h4>
-                    <ul className="space-y2" >
+                    <ul className="space-y-2" >
                         {NAV_LINKS.map((link) => (
                             <li key={link.href} >
                                 <Link
